@@ -2,13 +2,21 @@
 
 ### Introduction
 
-Sybil is a common identity for an address in the Ethereum blockchain that can be used across a variety of dapps. The obvious candidates are decentarlized social apps (messaging, messageboards, microblogging, etc.), but many dapps in other domains would also benefit from the presence of nicknames and avatars.
+Sybil lets you attach a basic social identity on your Ethereum address that can be used easily used by any other dapp. The obvious candidates are social dapps (decentralized messaging, messageboards, microblogging, etc.), but many dapps in other domains would also benefit from the presence of nicknames and avatars.
 
 ### Principles
 
 * **Simplicity**
+
+The smart contract powering Sybil is less than 100 lines of code. Simple contracts are more secure and easily auditable.
+
+* **No unique nicknames**
+
+You should be called by any name you wish to be called. That's why your Sybil nickname is not unique, meaning that any number of people can share the same nickname. After all, you already have a unique id that other people and services can use to verify you — your Ethereum address!
+
 * **Pseudonym-friendliness**
-* **No unique names**
+
+Using your legal name makes you subject to surveillance by states and corporations. Pseudonyms, i.e. non-legal names, give you the freedom you to safely manage and explore different facets of your identity. 
 
 ### Integration
 
@@ -49,7 +57,7 @@ To get information about an address:
 
 ```javascript
 // get the nickname associated with an address
-S.username.of('0x02f807d30DcA3bAb5C5b010F5D9a05e4876dcaB8');
+S.nickname.of('0x02f807d30DcA3bAb5C5b010F5D9a05e4876dcaB8');
 
 // get the avatar URL associated with an address
 S.avatar.of('0x02f807d30DcA3bAb5C5b010F5D9a05e4876dcaB8');
