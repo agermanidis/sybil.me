@@ -4,6 +4,12 @@
 
 Sybil is a common identity for an address in the Ethereum blockchain that can be used across a variety of dapps. The obvious candidates are decentarlized social apps (messaging, messageboards, microblogging, etc.), but many dapps in other domains would also benefit from the presence of nicknames and avatars.
 
+### Principles
+
+* **Simplicity**
+* **Pseudonym-friendliness**
+* **No unique names**
+
 ### Integration
 
 Install the sybil library through NPM:
