@@ -2,9 +2,9 @@
 
 ### Introduction
 
-### Integration
+Sybil is a common identity for an address in the Ethereum blockchain that can be used across a variety of dapps. The obvious candidates are decentarlized social apps (messaging, messageboards, microblogging, etc.), but many dapps in other domains would also benefit from the presence of nicknames and avatars.
 
-Sybil is a common identity for an address in the Ethereum blockchain that can be used across a variety of dapps. The obvious candidates are decentarlized social apps (messaging, messageboards, microblogging, etc.), but many apps in other domains would also benefit from the presence of nicknames and avatars.
+### Integration
 
 Install the sybil library through NPM:
 
@@ -43,10 +43,10 @@ To get information about an address:
 
 ```javascript
 // get the nickname associated with an address
-S.nicknameOf('0x02f807d30DcA3bAb5C5b010F5D9a05e4876dcaB8');
+S.username.of('0x02f807d30DcA3bAb5C5b010F5D9a05e4876dcaB8');
 
-// get the picture URL associated with an address
-S.pictureOf('0x02f807d30DcA3bAb5C5b010F5D9a05e4876dcaB8');
+// get the avatar URL associated with an address
+S.avatar.of('0x02f807d30DcA3bAb5C5b010F5D9a05e4876dcaB8');
 ```
 
 ### License
