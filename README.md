@@ -6,17 +6,21 @@ Sybil lets you attach a basic social identity on your Ethereum address that can 
 
 ### Principles
 
-* **Simplicity**
+* **Simple code**
 
 The smart contract powering Sybil is less than 100 lines of code. Simple contracts are more secure and easily auditable.
+
+* **Simple integration**
+
+Adding nicknames and pictures to the users of your dapp using the Sybil protocol can be done in a few minutes. We also provide various example dapps that use Sybil.
 
 * **No unique nicknames**
 
 You should be called by any name you wish to be called. That's why your Sybil nickname is not unique, meaning that any number of people can share the same nickname. After all, you already have a unique id that other people and services can use to verify you — your Ethereum address!
 
-* **Pseudonym-friendliness**
+* **No real names**
 
-Using your legal name makes you subject to surveillance by states and corporations. Pseudonyms, i.e. non-legal names, give you the freedom you to safely manage and explore different facets of your identity. 
+By calling it "nickname" instead of "name," we encourage you not to use your legal name, as it more easily makes you subject to surveillance by states and corporations. Pseudonyms, i.e. non-legal names, give you the freedom you to safely manage and explore different facets of your identity. 
 
 ### Integration
 
