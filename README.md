@@ -2,7 +2,7 @@
 
 ### Introduction
 
-Sybil lets you attach a basic social identity on your Ethereum address that can be used easily used by any other dapp. The obvious candidates are social dapps (decentralized messaging, messageboards, microblogging, etc.), but many dapps in other domains would also benefit from the presence of nicknames and avatars to humanize their user's experience.
+Sybil lets you attach a basic social identity, consisting of a nickname and an avatar, to your Ethereum address that can be used easily used by any other dapp. The obvious candidates are social dapps (decentralized messaging, messageboards, microblogging, etc.), but many dapps in other domains would also benefit from the presence of nicknames and avatars to humanize their user's experience.
 
 ### Principles
 
@@ -20,7 +20,7 @@ You should be called by any name you wish to be called. That's why your Sybil ni
 
 * **No real names**
 
-By calling it "nickname" instead of "name," we encourage you not to use your legal name, as it more easily makes you subject to surveillance by states and corporations. Pseudonyms, i.e. non-legal names, give you the freedom you to safely manage and explore different facets of your identity. 
+We call it it "nickname" instead of "name" and "avatar" instead of "profile picture" because we want to encourage you not to use your legal name or an actual photo, as it more easily makes you subject to surveillance by states and corporations. Pseudonyms, i.e. non-legal names, give you the freedom you to safely manage and explore different facets of your identity. 
 
 ### Integration
 
