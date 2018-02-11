@@ -36,10 +36,6 @@ const EtherscanAddressLink = ({ address, truncate, text, network }) => {
       </ExternalLink>;
 };
 
-const joinOr = (arr) => {
-    if (arr.length === 1) return arr[0];
-    return arr.slice(0, arr.length - 1).join(', ') + ' or ' + arr.slice(arr.length-1);
-}
 
 class WithPendingTransaction extends Component {
   constructor() {
@@ -100,29 +96,6 @@ class WithPendingTransaction extends Component {
   }
 }
 
-const TopBar = ({hasWeb3, network, isNetworkSupported, supportedNetworks, address}) => {
-    if (hasWeb3 && isNetworkSupported) {
-        return (
-            <div className='topbar success'>
-                Metamask detected. Connected to {network}.
-            </div>
-        )
-    } else if (hasWeb3) {
-        return <div className="topbar fail">
-            Metamask detected but current network is not supported. Switch to {joinOr(supportedNetworks)}. Read-only.
-          </div>;
-    } else {
-        return <div className="topbar fail">
-            No <ExternalLink href="https://metamask.io/">
-              Metamask extension
-            </ExternalLink> detected.{' '}
-            <ExternalLink href="https://www.youtube.com/watch?v=6Gf_kRE4MJU">
-              Here are instructions for how to install it.
-            </ExternalLink>{' '}
-            This site will be read-only.
-          </div>;
-    }
-}
 
 
 class EthereumWrapper extends Component {
@@ -199,11 +172,11 @@ class EthereumWrapper extends Component {
     });
     return (
       <div>
-        <TopBar
+        {/*<TopBar
           {...this.state}
           supportedNetworks={this.props.supportedNetworks}
-        />
-        
+        />*/}
+
         {childrenWithProp}
       </div>
     );
