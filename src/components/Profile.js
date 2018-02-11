@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Avatar from './Avatar';
 import { ExternalLink } from '../common';
 import AvatarImage from '../images/avatar.png';
@@ -14,25 +14,38 @@ const ProfileContainer = styled.div `
   color: #414141;
   font-size: 0.8rem;
   height: 100vh;
-
 `
 
-const BlinkingSpan = styled.span `
+const blink = keyframes`
+  from, to {
+    color: transparent;
+  }
 
+  50% {
+    color: #808080;
+  }
+`;
+
+const BlinkingSpan = styled.span `
   font-size: 24px;
   color: #808080;
   position: relative;
   right: 36px;
-  -webkit-animation: 1s blink step-end infinite;
-  -moz-animation: 1s blink step-end infinite;
-  -ms-animation: 1s blink step-end infinite;
-  -o-animation: 1s blink step-end infinite;
-  animation: 1s blink step-end infinite;
-
+  -webkit-animation: 1s ${blink} step-end infinite;
+  -moz-animation: 1s ${blink} step-end infinite;
+  -ms-animation: 1s ${blink} step-end infinite;
+  -o-animation: 1s ${blink} step-end infinite;
+  animation: 1s ${blink} step-end infinite;
 `
 
-
-
+const NicknameInput = styled.input`
+  border: none;
+  background-color: #f6f6f6;
+  font-size: 19px;
+  text-align: center;
+  text-transform: capitalize;
+  caret-color: #808080;
+`;
 
 class Profile extends Component {
 
@@ -42,25 +55,21 @@ class Profile extends Component {
 
     return  <ProfileContainer>
         <p>Drag and Drop your Image.</p>
-        <p>Add your Nickname</p>
 
         <img src={AvatarImage} />
-
-
 
         { /*  <Avatar
           image={image}
           onDrop={onDrop} /> */}
-
+        <p>Add your Nickname</p>
         <p>
 
-          <input onChange={onNicknameChange}
+          <NicknameInput onChange={onNicknameChange}
             type="text"
             placeholder="Purple Elephant"
             onfocus="this.placeholder = ''"
             onblur="this.placeholder = 'enter your text'"
-            value={nickname}
-            class="blinking-cursor" / >
+            value={nickname} />
 
           <BlinkingSpan > | </BlinkingSpan>
         </p>

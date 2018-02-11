@@ -104,7 +104,7 @@ class App extends Component {
   }
 
   render() {
-    const { scrollTop, nickname, image, pendingTx, AvatarImage } = this.state;
+    const { scrollTop, nickname, image, pendingTx } = this.state;
     const { hasWeb3, isNetworkSupported } = this.props;
     return <div>
       <Menu
