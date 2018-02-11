@@ -5,7 +5,7 @@ import { ExternalLink } from '../common';
 import { Flex1 } from './Styles';
 
 const MenuContainer = styled.div `
-  padding: 1em;
+  padding: 1rem;
   height: 20px;
   display: flex;
 
@@ -17,15 +17,18 @@ class Menu extends Component {
     const {hasWeb3, isNetworkSupported} = this.props;
 
     return <MenuContainer>
-      <Flex1> 🎭 sybil.me – minimum viable decentralized identity </Flex1>
+      <Flex1 style={{paddingLeft: '20px'}} >🎭 sybil.me – minimum viable decentralized identity </Flex1>
       <Flex1 style={{textAlign: 'center'}}>
         <MetamaskMessage
           hasWeb3={hasWeb3}
           isNetworkSupported={isNetworkSupported}
           />
       </Flex1>
-      <Flex1 style={{textAlign: 'right'}}>
+      <Flex1 style={{textAlign: 'right', paddingRight: '40px'}}>
+        <ExternalLink href="#"> About </ExternalLink>
         <ExternalLink href="#"> Docs </ExternalLink>
+        <ExternalLink href="#"> Contract </ExternalLink>
+
       </Flex1>
 
     </MenuContainer>

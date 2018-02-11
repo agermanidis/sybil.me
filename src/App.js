@@ -14,10 +14,11 @@ import styled from "styled-components";
 import Menu from './components/Menu';
 import Avatar from './components/Avatar';
 import Profile from './components/Profile';
+import ProfileCode from './components/ProfileCode';
+import ProfileInUse from './components/ProfileInUse';
 import Description from './components/Description';
-
-import * as Scroll from 'react-scroll';
-import { Link, DirectLink, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
+import DescriptionInUse from './components/DescriptionInUse';
+import DescriptionCode from './components/DescriptionCode';
 
 const CONTRACT_ADDRESSES = {
   ropsten: "0x165d9e99f23ab2ab039e92eb536f9a191663182d"
@@ -38,7 +39,7 @@ class App extends Component {
     super();
     this.state = {
       nickname: "",
-      image: "",
+      image: "" ,
       imageFile: null,
       pendingTx: null
     };
@@ -103,7 +104,7 @@ class App extends Component {
   }
 
   render() {
-    const { scrollTop, nickname, image, pendingTx } = this.state;
+    const { scrollTop, nickname, image, pendingTx, AvatarImage } = this.state;
     const { hasWeb3, isNetworkSupported } = this.props;
     return <div>
       <Menu
@@ -116,17 +117,22 @@ class App extends Component {
         }}>
         <div style={{flex: '1'}} >
           <Page><Description /></Page>
-          <Page><Description /></Page>
-          <Page><Description /></Page>
+          <Page><DescriptionInUse /></Page>
+          <Page><DescriptionCode /></Page>
         </div>
         <div style={{
           flex: 1
         }}>
+        <Page>
           <Profile
             nickname={nickname}
             image={image}
             onNicknameChange={(evt) => this.setState({ nickname: evt.target.value })}
             onDrop={this.onDrop.bind(this)} />
+        </Page>
+        <Page><ProfileInUse /></Page>
+        <Page><ProfileCode /></Page>
+
         </div>
       </Flex>
     </div>

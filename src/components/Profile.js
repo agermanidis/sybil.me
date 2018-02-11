@@ -2,12 +2,37 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Avatar from './Avatar';
 import { ExternalLink } from '../common';
+import AvatarImage from '../images/avatar.png';
+
+const words = ['the first sentence', 'the second sentence'];
 
 const ProfileContainer = styled.div `
   flex : 1;
-  padding: 20px;
+  padding-top: 20vh;
+  background-color: #F6F6F6;
+  text-align: center;
+  color: #414141;
+  font-size: 0.8rem;
+  height: 100vh;
 
 `
+
+const BlinkingSpan = styled.span `
+
+  font-size: 24px;
+  color: #808080;
+  position: relative;
+  right: 36px;
+  -webkit-animation: 1s blink step-end infinite;
+  -moz-animation: 1s blink step-end infinite;
+  -ms-animation: 1s blink step-end infinite;
+  -o-animation: 1s blink step-end infinite;
+  animation: 1s blink step-end infinite;
+
+`
+
+
+
 
 class Profile extends Component {
 
@@ -16,20 +41,28 @@ class Profile extends Component {
     const { nickname, image, onNicknameChange, onDrop } = this.props;
 
     return  <ProfileContainer>
-        <h1>Create your Sybil</h1>
-        <p>Attach a nickname and picture to your Ethereum address.</p>
-        <p>
-          The picture will be stored on <ExternalLink href="https://ipfs.io/">
-            IPFS
-          </ExternalLink>, a decentralized storage network.
-        </p>
+        <p>Drag and Drop your Image.</p>
+        <p>Add your Nickname</p>
 
-        <Avatar
+        <img src={AvatarImage} />
+
+
+
+        { /*  <Avatar
           image={image}
-          onDrop={onDrop} />
+          onDrop={onDrop} /> */}
 
         <p>
-          <input onChange={onNicknameChange} type="text" placeholder="nickname" value={nickname} />
+
+          <input onChange={onNicknameChange}
+            type="text"
+            placeholder="Purple Elephant"
+            onfocus="this.placeholder = ''"
+            onblur="this.placeholder = 'enter your text'"
+            value={nickname}
+            class="blinking-cursor" / >
+
+          <BlinkingSpan > | </BlinkingSpan>
         </p>
 
         {/*<WithPendingTransaction web3={this.props.web3} successMsg={"Updated profile."} failMsg={"Failed to update profile"} transaction={pendingTx} onFinish={this.refreshDapp.bind(this)}>
@@ -38,6 +71,7 @@ class Profile extends Component {
           </button>
         </WithPendingTransaction>*/}
       </ProfileContainer>;
+
   }
 
 }
