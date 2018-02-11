@@ -22,7 +22,6 @@ const AvatarDropzone = styled(Dropzone)`
   }
 `;
 
-
 class Avatar extends Component {
   render () {
     const { image, onChange, onDrop } = this.props;

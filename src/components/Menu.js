@@ -5,8 +5,7 @@ import { ExternalLink } from '../common';
 import { Flex1 } from './Styles';
 
 const MenuContainer = styled.div `
-
-  width: 100vw;
+  padding: 1em;
   height: 20px;
   display: flex;
 
@@ -18,7 +17,7 @@ class Menu extends Component {
     const {hasWeb3, isNetworkSupported} = this.props;
 
     return <MenuContainer>
-      <Flex1> 🎭 Sybil.me </Flex1>
+      <Flex1> 🎭 sybil.me – minimum viable decentralized identity </Flex1>
       <Flex1 style={{textAlign: 'center'}}>
         <MetamaskMessage
           hasWeb3={hasWeb3}

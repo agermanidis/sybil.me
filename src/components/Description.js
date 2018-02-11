@@ -5,7 +5,7 @@ import DappsImage from '../images/dapps.png';
 
 const DescriptionContainer = styled.div `
   flex : 1;
-  background-color: lightgrey;
+  // background-color: lightgrey;
   padding: 20px;
 
 `

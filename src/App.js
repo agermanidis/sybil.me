@@ -10,10 +10,14 @@ import {
 import contractABI from "./abi";
 import styled from "styled-components";
 
+
 import Menu from './components/Menu';
 import Avatar from './components/Avatar';
 import Profile from './components/Profile';
 import Description from './components/Description';
+
+import * as Scroll from 'react-scroll';
+import { Link, DirectLink, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 
 const CONTRACT_ADDRESSES = {
   ropsten: "0x165d9e99f23ab2ab039e92eb536f9a191663182d"
@@ -22,10 +26,12 @@ const CONTRACT_ADDRESSES = {
 const GAS_LIMIT = 300000;
 
 const Flex = styled.div `
-
   display: flex;
+`;
 
-`
+const Page = styled.div`
+  height: 100vh;
+`;
 
 class App extends Component {
   constructor() {
@@ -60,6 +66,13 @@ class App extends Component {
   async componentDidMount() {
     await this.setupContract();
     await this.refreshDapp();
+    window.addEventListener('scroll', this.handleScroll.bind(this));
+  }
+
+  handleScroll (evt) {
+    let scrollTop = window.document.documentElement.scrollTop;
+    console.log({scrollTop});
+    this.setState({scrollTop});
   }
 
   async onDrop(files) {
@@ -85,28 +98,37 @@ class App extends Component {
     });
   }
 
+  componentWillUnmount () {
+    window.removeEventListener('scroll', this.handleScroll.bind(this));
+  }
+
   render() {
-    const { nickname, image, pendingTx } = this.state;
+    const { scrollTop, nickname, image, pendingTx } = this.state;
     const { hasWeb3, isNetworkSupported } = this.props;
-
-    console.log({hasWeb3, isNetworkSupported});
-
     return <div>
-       <Menu
-         hasWeb3={hasWeb3}
-         isNetworkSupported={isNetworkSupported}
-         />
-
-      <Flex>
-        <Description />
-        <Profile
-          nickname={nickname}
-          image={image}
-          onNicknameChange={(evt) => this.setState({ nickname: evt.target.value })}
-          onDrop={this.onDrop.bind(this)} />
+      <Menu
+        hasWeb3={hasWeb3}
+        isNetworkSupported={isNetworkSupported} />
+      <Flex style={{
+        height: '100vh',
+        position: 'fixed',
+        overflow: 'scroll'
+        }}>
+        <div style={{flex: '1'}} >
+          <Page><Description /></Page>
+          <Page><Description /></Page>
+          <Page><Description /></Page>
+        </div>
+        <div style={{
+          flex: 1
+        }}>
+          <Profile
+            nickname={nickname}
+            image={image}
+            onNicknameChange={(evt) => this.setState({ nickname: evt.target.value })}
+            onDrop={this.onDrop.bind(this)} />
+        </div>
       </Flex>
-
-
     </div>
   }
 }
