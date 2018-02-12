@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { ExternalLink } from '../common';
+import { PageTitle } from './Styles';
 
 const DescriptionContainer = styled.div `
   flex : 1;
@@ -16,22 +17,14 @@ const DescriptionTexts = styled.p `
 `
 
 class DescriptionCode extends Component {
-
   render() {
     return  <DescriptionContainer>
+        <PageTitle>For Dapp Developers</PageTitle>
         <DescriptionTexts>
-          Simple code
-The smart contract powering Sybil is less than 100 lines of code. Simple contracts are more secure and easily auditable.
+          Integrate Sybil to your app in a few lines of code.
         </DescriptionTexts>
-
-        <DescriptionTexts>
-          	Simple integration
-          Adding nicknames and pictures to the users of your dapp using the Sybil protocol can be done in a few minutes. We also provide various example dapps that use Sybil
-        </DescriptionTexts>
-
       </DescriptionContainer>;
   }
-
 }
 
 export default DescriptionCode;

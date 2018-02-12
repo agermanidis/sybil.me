@@ -9,6 +9,7 @@ import {
 } from "./common";
 import contractABI from "./abi";
 import styled from "styled-components";
+import ScrollableAnchor from 'react-scrollable-anchor';
 
 
 import Menu from './components/Menu';
@@ -19,6 +20,8 @@ import ProfileInUse from './components/ProfileInUse';
 import Description from './components/Description';
 import DescriptionInUse from './components/DescriptionInUse';
 import DescriptionCode from './components/DescriptionCode';
+import { Flex1 } from './components/Styles';
+import easingFunctions from './helpers/easingFunctions';
 
 const CONTRACT_ADDRESSES = {
   ropsten: "0x165d9e99f23ab2ab039e92eb536f9a191663182d"
@@ -28,6 +31,13 @@ const GAS_LIMIT = 300000;
 
 const Flex = styled.div `
   display: flex;
+`;
+
+const PageContainer = styled.div`
+  display: flex;
+  height: '100vh',
+  position: 'fixed',
+  overflow: 'scroll'
 `;
 
 const Page = styled.div`
@@ -99,32 +109,27 @@ class App extends Component {
     });
   }
 
-  componentWillUnmount () {
-    window.removeEventListener('scroll', this.handleScroll.bind(this));
-  }
-
   render() {
     const { scrollTop, nickname, image, pendingTx } = this.state;
-    const { hasWeb3, isNetworkSupported } = this.props;
+    const { address, hasWeb3, isNetworkSupported } = this.props;
     return <div>
       <Menu
         hasWeb3={hasWeb3}
         isNetworkSupported={isNetworkSupported} />
-      <Flex style={{
-        height: '100vh',
-        position: 'fixed',
-        overflow: 'scroll'
-        }}>
-        <div style={{flex: '1'}} >
+      <PageContainer>
+        <Flex1>
           <Page><Description /></Page>
-          <Page><DescriptionInUse /></Page>
-          <Page><DescriptionCode /></Page>
-        </div>
-        <div style={{
-          flex: 1
-        }}>
+          <ScrollableAnchor id={'users'}>
+            <Page><DescriptionInUse /></Page>
+          </ScrollableAnchor>
+          <ScrollableAnchor id={'developers'}>
+            <Page><DescriptionCode /></Page>
+          </ScrollableAnchor>
+        </Flex1>
+        <Flex1>
         <Page>
           <Profile
+            address={address}
             nickname={nickname}
             image={image}
             onNicknameChange={(evt) => this.setState({ nickname: evt.target.value })}
@@ -132,9 +137,8 @@ class App extends Component {
         </Page>
         <Page><ProfileInUse /></Page>
         <Page><ProfileCode /></Page>
-
-        </div>
-      </Flex>
+        </Flex1>
+      </PageContainer>
     </div>
   }
 }

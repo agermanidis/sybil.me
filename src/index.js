@@ -26,4 +26,8 @@ injectGlobal`
   input:focus::-webkit-input-placeholder {
       opacity: 0;
   }
+
+  a {
+      color: black;
+  }
 `

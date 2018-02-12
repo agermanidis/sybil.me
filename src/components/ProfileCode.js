@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { ExternalLink } from '../common';
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { hybrid } from "react-syntax-highlighter/styles/hljs";
 
 const ProfileCodeContainer = styled.div `
   flex : 1;
-  padding: 20px;
   background-color: #000000;
-  text-align: center;
   color: white;
-  font-size: 1rem;
+  font-size: 1.2rem;
   height: 100vh;
-
-`
+`;
 
 class ProfileCode extends Component {
 
@@ -19,9 +18,8 @@ class ProfileCode extends Component {
 
 
     return  <ProfileCodeContainer>
-
-      <p>
-        import Sybil from 'sybil';
+        <SyntaxHighlighter style={hybrid} customStyle={{background: 'none', padding: '10vh'}} language='javascript'>
+{`import Sybil from 'sybil';
 
 // initialize Sybil using the default contract address
 const S = new Sybil(web3);
@@ -30,9 +28,9 @@ const S = new Sybil(web3);
 S.nickname.of('0x02f807d30DcA3bAb5C5b010F5D9a05e4876dcaB8');
 
 // get the avatar URL associated with an address
-S.avatar.of('0x02f807d30DcA3bAb5C5b010F5D9a05e4876dcaB8');
+S.avatar.of('0x02f807d30DcA3bAb5C5b010F5D9a05e4876dcaB8');`}
 
-      </p>
+      </SyntaxHighlighter>
 
     </ProfileCodeContainer>;
 

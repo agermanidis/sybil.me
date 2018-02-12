@@ -25,12 +25,12 @@ class Menu extends Component {
           />
       </Flex1>
       <Flex1 style={{textAlign: 'right', paddingRight: '40px'}}>
-        <ExternalLink href="#"> About </ExternalLink>
-        <ExternalLink href="#"> Docs </ExternalLink>
-        <ExternalLink href="#"> Contract </ExternalLink>
-
+        <ExternalLink href="#">About</ExternalLink>
+        {' '}
+        <ExternalLink href="#">Docs</ExternalLink>
+        {' '}
+        <ExternalLink href="#">Contract</ExternalLink>
       </Flex1>
-
     </MenuContainer>
   }
 

@@ -11,30 +11,19 @@ const ProfileInUseContainer = styled.div `
   height: 100vh;
   padding-top: 8vh;
   overflow-x: hidden;
-
-`
+`;
 
 const SocialImage = styled.img `
-
   right: -60px;
   position: relative;
-
-`
+`;
 
 class ProfileInUse extends Component {
-
   render() {
-
-
-    return  <ProfileInUseContainer>
-
+    return <ProfileInUseContainer>
       <SocialImage src={Dwritter} />
-
-
     </ProfileInUseContainer>;
-
   }
-
 }
 
 export default ProfileInUse;

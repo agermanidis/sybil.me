@@ -10,20 +10,19 @@ const MetamaskMessage = ({hasWeb3, isNetworkSupported}) => {
     if (hasWeb3 && isNetworkSupported) {
         return (
             <span>
-                Metamask detected. Connected to mainnet.
+                Web3 detected. Connected to mainnet.
             </span>
         )
     } else if (hasWeb3) {
         return <span>
-            Metamask detected but current network is not supported. Switch to mainnet. Read-only.
+            Web3 detected but current network is not supported. Switch to mainnet. Read-only.
           </span>;
     } else {
         return <span>
-            No <ExternalLink href="https://metamask.io/">
-              Metamask
-            </ExternalLink> detected.{' '}
-            <ExternalLink href="https://www.youtube.com/watch?v=6Gf_kRE4MJU">
-              Install it here.
+            No Web3 detected.
+            {' '}
+            <ExternalLink href="https://metamask.io">
+              Install Metamask.
             </ExternalLink>{' '}
           </span>;
     }

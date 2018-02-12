@@ -2,19 +2,17 @@ import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
 import Avatar from './Avatar';
 import { ExternalLink } from '../common';
-import AvatarImage from '../images/avatar.png';
-
-const words = ['the first sentence', 'the second sentence'];
+import { generateAvatar } from '../helpers/avatar';
 
 const ProfileContainer = styled.div `
   flex : 1;
-  padding-top: 20vh;
+  padding-top: 10vh;
   background-color: #F6F6F6;
   text-align: center;
   color: #414141;
   font-size: 0.8rem;
   height: 100vh;
-`
+`;
 
 const blink = keyframes`
   from, to {
@@ -36,7 +34,7 @@ const BlinkingSpan = styled.span `
   -ms-animation: 1s ${blink} step-end infinite;
   -o-animation: 1s ${blink} step-end infinite;
   animation: 1s ${blink} step-end infinite;
-`
+`;
 
 const NicknameInput = styled.input`
   border: none;
@@ -47,23 +45,36 @@ const NicknameInput = styled.input`
   caret-color: #808080;
 `;
 
+const AddText = styled.p`
+  font-size: 1.5em;
+`;
+
+const SaveButton = styled.button`
+  background: none;
+  padding: 10px;
+  font-size: 15px;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.05);
+  };
+`;
+
+const Space = ({size}) => <div style={{marginTop: size}} />
+
 class Profile extends Component {
 
   render() {
-
-    const { nickname, image, onNicknameChange, onDrop } = this.props;
+    let { address, nickname, image, onNicknameChange, onDrop } = this.props;
+    if (!image) image = generateAvatar(address);
 
     return  <ProfileContainer>
+        <AddText>Set your Avatar</AddText>
         <p>Drag and Drop your Image.</p>
-
-        <img src={AvatarImage} />
-
-        { /*  <Avatar
-          image={image}
-          onDrop={onDrop} /> */}
-        <p>Add your Nickname</p>
+        <img src={image} />
+        <Space size={'5em'} />
+        <AddText>Set your Nickname</AddText>
         <p>
-
           <NicknameInput onChange={onNicknameChange}
             type="text"
             placeholder="Purple Elephant"
@@ -73,14 +84,11 @@ class Profile extends Component {
 
           <BlinkingSpan > | </BlinkingSpan>
         </p>
-
-        {/*<WithPendingTransaction web3={this.props.web3} successMsg={"Updated profile."} failMsg={"Failed to update profile"} transaction={pendingTx} onFinish={this.refreshDapp.bind(this)}>
-          <button disabled={!this.props.isNetworkSupported || !name} onClick={this.save.bind(this)}>
-            Save Information
-          </button>
-        </WithPendingTransaction>*/}
+        <Space size={'5em'} />
+        <SaveButton>
+          Save
+        </SaveButton>
       </ProfileContainer>;
-
   }
 
 }
