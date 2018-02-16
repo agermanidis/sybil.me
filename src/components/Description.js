@@ -6,6 +6,7 @@ import { DescriptionText } from './Styles';
 const DescriptionContainer = styled.div `
   flex : 1;
   padding: 40px;
+  padding-top: 20vh;
 `;
 
 const HeaderText = styled.h1 `
@@ -15,9 +16,12 @@ const HeaderText = styled.h1 `
 class Description extends Component {
   render() {
     return  <DescriptionContainer>
-        <HeaderText>Sybil is your decentralized <u>identity</u>.</HeaderText>
+        <HeaderText>Sybil is your minimal decentralized <u>identity</u>.</HeaderText>
         <DescriptionText>
-        It's a nickname, avatar, and other profile information attached to your Ethereum address that can be used across dapps.
+        It's a nickname, avatar, and other profile information attached to your Ethereum address that can be used across Ðapps.
+        </DescriptionText>
+        <DescriptionText>
+        <a href='#users'>Learn More</a>
         </DescriptionText>
       </DescriptionContainer>;
   }

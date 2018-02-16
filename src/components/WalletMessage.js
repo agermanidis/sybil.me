@@ -6,7 +6,7 @@ const joinOr = (arr) => {
     return arr.slice(0, arr.length - 1).join(', ') + ' or ' + arr.slice(arr.length-1);
 }
 
-const MetamaskMessage = ({hasWeb3, isNetworkSupported}) => {
+const WalletMessage = ({hasWeb3, isNetworkSupported}) => {
     if (hasWeb3 && isNetworkSupported) {
         return (
             <span>
@@ -15,11 +15,11 @@ const MetamaskMessage = ({hasWeb3, isNetworkSupported}) => {
         )
     } else if (hasWeb3) {
         return <span>
-            Ethereum wallet detected but current network is not supported. Switch to mainnet. Read-only.
+            ⚠️ Ethereum wallet detected but current network is not supported. Switch to mainnet. Read-only.
           </span>;
     } else {
         return <span>
-            No Ethereum wallet detected.
+            ⚠️ No Ethereum wallet detected.
             {' '}
             <ExternalLink href="https://metamask.io">
               Install Metamask.
@@ -28,4 +28,4 @@ const MetamaskMessage = ({hasWeb3, isNetworkSupported}) => {
     }
 }
 
-export default MetamaskMessage;
+export default WalletMessage;

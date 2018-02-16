@@ -10,6 +10,8 @@ import {
 import contractABI from "./abi";
 import styled from "styled-components";
 import ScrollableAnchor from 'react-scrollable-anchor';
+import { StickyContainer, Sticky } from 'react-sticky';
+
 
 import Menu from './components/Menu';
 import Avatar from './components/Avatar';
@@ -34,9 +36,9 @@ const Flex = styled.div `
 
 const PageContainer = styled.div`
   display: flex;
-  height: 100vh;
-  position: fixed;
-  overflow: scroll;
+  height: '100vh',
+  position: 'fixed',
+  overflow: 'scroll'
 `;
 
 const Page = styled.div`
@@ -86,10 +88,11 @@ class App extends Component {
   }
 
   async onDrop(files) {
+    console.log('just dropped', files);
     if (files.length === 0) return;
     this.setState({
       image: URL.createObjectURL(files[0]),
-      imageFile: files[0]
+      // imageFile: files[0]
     });
   }
 
@@ -117,9 +120,13 @@ class App extends Component {
         isNetworkSupported={isNetworkSupported} />
       <PageContainer>
         <Flex1>
-          <Page><Description /></Page>
-          <Page><DescriptionInUse /></Page>
-          <Page><DescriptionCode /></Page>
+            <Page><Description /></Page>
+          <ScrollableAnchor id={'users'}>
+            <Page><DescriptionInUse /></Page>
+          </ScrollableAnchor>
+          <ScrollableAnchor id={'developers'}>
+            <Page><DescriptionCode /></Page>
+          </ScrollableAnchor>
         </Flex1>
         <Flex1>
         <Page>

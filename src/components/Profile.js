@@ -3,6 +3,7 @@ import styled, { keyframes } from 'styled-components';
 import Avatar from './Avatar';
 import { ExternalLink } from '../common';
 import { generateAvatar } from '../helpers/avatar';
+import { generateNickname } from '../helpers/nickname';
 
 const ProfileContainer = styled.div `
   flex : 1;
@@ -68,18 +69,21 @@ class Profile extends Component {
     return  <ProfileContainer>
         <AddText>Set your Avatar</AddText>
         <p>Drag and Drop your Image.</p>
-        <img src={image} />
+        {/* <img src={image} /> */}
+        <Avatar 
+          onDrop={onDrop}
+          image={image}/>
         <Space size={'5em'} />
         <AddText>Set your Nickname</AddText>
         <p>
           <NicknameInput onChange={onNicknameChange}
             type="text"
-            placeholder="Purple Elephant"
+            placeholder={generateNickname(address)}
             onfocus="this.placeholder = ''"
             onblur="this.placeholder = 'enter your text'"
             value={nickname} />
 
-          <BlinkingSpan > | </BlinkingSpan>
+          {/* <BlinkingSpan > | </BlinkingSpan> */}
         </p>
         <Space size={'5em'} />
         <SaveButton>

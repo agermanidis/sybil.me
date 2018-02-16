@@ -1,3 +1,5 @@
+import { ZERO_ADDRESS } from "../common";
+
 const colors = [
 	'#00BFFF',
 	'#FF1493',
@@ -10,6 +12,7 @@ const colors = [
 ];
 
 const generateAvatar = (address) => {
+	if (!address) address = ZERO_ADDRESS;
     address = address.slice(2);
     let temporaryCanvas = document.createElement('canvas');
     temporaryCanvas.width = 400;

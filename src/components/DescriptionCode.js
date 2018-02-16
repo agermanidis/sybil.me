@@ -12,9 +12,9 @@ const DescriptionContainer = styled.div `
 class DescriptionCode extends Component {
   render() {
     return <DescriptionContainer>
-        <PageTitle>For Dapp Developers</PageTitle>
+        <PageTitle>For Ðapp Developers</PageTitle>
         <DescriptionText>
-          Integrate Sybil into your dapp in a few lines of code.
+          Integrate Sybil into your Ðapp in a few lines of code.
         </DescriptionText>
         <DescriptionText>
           No need to write custom code to maintain user profiles.
