@@ -41,7 +41,6 @@ const NicknameInput = styled.input`
   background-color: #f6f6f6;
   font-size: 19px;
   text-align: center;
-  text-transform: capitalize;
   caret-color: #808080;
 `;
 
@@ -52,7 +51,7 @@ const AddText = styled.p`
 const SaveButton = styled.button`
   background: none;
   padding: 10px;
-  font-size: 15px;
+  font-size: 18px;
   cursor: pointer;
 
   &:hover {
@@ -63,11 +62,9 @@ const SaveButton = styled.button`
 const Space = ({size}) => <div style={{marginTop: size}} />
 
 class Profile extends Component {
-
   render() {
     let { address, nickname, image, onNicknameChange, onDrop } = this.props;
     if (!image) image = generateAvatar(address);
-
     return  <ProfileContainer>
         <AddText>Set your Avatar</AddText>
         <p>Drag and Drop your Image.</p>
@@ -86,11 +83,10 @@ class Profile extends Component {
         </p>
         <Space size={'5em'} />
         <SaveButton>
-          Save
+          Update Sybil
         </SaveButton>
       </ProfileContainer>;
   }
-
 }
 
 export default Profile;

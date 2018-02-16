@@ -17,7 +17,9 @@ class Menu extends Component {
     const {hasWeb3, isNetworkSupported} = this.props;
 
     return <MenuContainer>
-      <Flex1 style={{paddingLeft: '20px'}} >🎭 sybil.me – minimum viable decentralized identity </Flex1>
+      <Flex1 style={{paddingLeft: '20px'}} >
+        🎭 sybil.me – decentralized identity
+      </Flex1>
       <Flex1 style={{textAlign: 'center'}}>
         <MetamaskMessage
           hasWeb3={hasWeb3}
@@ -26,9 +28,9 @@ class Menu extends Component {
       </Flex1>
       <Flex1 style={{textAlign: 'right', paddingRight: '40px'}}>
         <ExternalLink href="#">About</ExternalLink>
-        {' '}
+        {' – '}
         <ExternalLink href="#">Docs</ExternalLink>
-        {' '}
+        {' – '}
         <ExternalLink href="#">Contract</ExternalLink>
       </Flex1>
     </MenuContainer>

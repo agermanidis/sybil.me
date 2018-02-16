@@ -1,29 +1,26 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { ExternalLink } from '../common';
-import { PageTitle } from './Styles';
+import { PageTitle, DescriptionText } from './Styles';
 
 const DescriptionContainer = styled.div `
   flex : 1;
   padding: 40px;
 `;
 
-const DescriptionTexts = styled.p `
-  font-size: 2rem;
-  width: 85%;
-  padding-top: 2rem;
-`;
-
 class DescriptionInUse extends Component {
   render() {
     return <DescriptionContainer>
         <PageTitle>For Users</PageTitle>
-        <DescriptionTexts>
+        <DescriptionText>
           Set your profile once, use it everywhere.
-        </DescriptionTexts>
-        <DescriptionTexts>
+        </DescriptionText>
+        <DescriptionText>
           You're in control of your data, not the applications you use.
-        </DescriptionTexts>
+        </DescriptionText>
+        <DescriptionText>
+          You can only have one profile per Ethereum address—but you can create as many addresses you want.
+        </DescriptionText>
       </DescriptionContainer>;
   }
 }

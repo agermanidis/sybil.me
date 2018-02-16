@@ -1,28 +1,24 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { ExternalLink } from '../common';
-import { PageTitle } from './Styles';
+import { PageTitle, DescriptionText } from './Styles';
 
 const DescriptionContainer = styled.div `
   flex : 1;
   // background-color: lightgrey;
   padding: 40px;
-
-`
-const DescriptionTexts = styled.p `
-  font-size: 2rem;
-  width: 85%;
-  padding-top: 2rem;
-
-`
+`;
 
 class DescriptionCode extends Component {
   render() {
-    return  <DescriptionContainer>
+    return <DescriptionContainer>
         <PageTitle>For Dapp Developers</PageTitle>
-        <DescriptionTexts>
-          Integrate Sybil to your app in a few lines of code.
-        </DescriptionTexts>
+        <DescriptionText>
+          Integrate Sybil into your dapp in a few lines of code.
+        </DescriptionText>
+        <DescriptionText>
+          No need to write custom code to maintain user profiles.
+        </DescriptionText>
       </DescriptionContainer>;
   }
 }

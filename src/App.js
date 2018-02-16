@@ -11,7 +11,6 @@ import contractABI from "./abi";
 import styled from "styled-components";
 import ScrollableAnchor from 'react-scrollable-anchor';
 
-
 import Menu from './components/Menu';
 import Avatar from './components/Avatar';
 import Profile from './components/Profile';
@@ -35,9 +34,9 @@ const Flex = styled.div `
 
 const PageContainer = styled.div`
   display: flex;
-  height: '100vh',
-  position: 'fixed',
-  overflow: 'scroll'
+  height: 100vh;
+  position: fixed;
+  overflow: scroll;
 `;
 
 const Page = styled.div`
@@ -119,12 +118,8 @@ class App extends Component {
       <PageContainer>
         <Flex1>
           <Page><Description /></Page>
-          <ScrollableAnchor id={'users'}>
-            <Page><DescriptionInUse /></Page>
-          </ScrollableAnchor>
-          <ScrollableAnchor id={'developers'}>
-            <Page><DescriptionCode /></Page>
-          </ScrollableAnchor>
+          <Page><DescriptionInUse /></Page>
+          <Page><DescriptionCode /></Page>
         </Flex1>
         <Flex1>
         <Page>

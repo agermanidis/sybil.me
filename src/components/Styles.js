@@ -11,3 +11,11 @@ const PageTitle = styled.h2`
 `;
 
 export { PageTitle };
+
+const DescriptionText = styled.p `
+  font-size: 2rem;
+  width: 90%;
+  padding-top: 2rem;
+`;
+
+export { DescriptionText };
