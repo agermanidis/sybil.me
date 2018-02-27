@@ -18,7 +18,7 @@ class Menu extends Component {
 
     return <MenuContainer>
       <Flex1 style={{paddingLeft: '20px'}} >
-        🎭 sybil.me – decentralized identity
+        🎭 sybil.me – minimal decentralized identity
       </Flex1>
       <Flex1 style={{textAlign: 'center'}}>
         <MetamaskMessage

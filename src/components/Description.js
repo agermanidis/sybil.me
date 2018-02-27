@@ -15,10 +15,11 @@ const HeaderText = styled.h1 `
 class Description extends Component {
   render() {
     return  <DescriptionContainer>
-        <HeaderText>Sybil is your decentralized <u>identity</u>.</HeaderText>
+        <HeaderText>Sybil is your minimal decentralized <u>identity</u>.</HeaderText>
         <DescriptionText>
         It's a nickname, avatar, and other profile information attached to your Ethereum address that can be used across dapps.
         </DescriptionText>
+        <button > Learn More</button>
       </DescriptionContainer>;
   }
 }
