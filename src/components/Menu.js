@@ -11,6 +11,7 @@ const MenuContainer = styled.div `
   position: absolute;
   z-index: 1;
   width: 100vw;
+  box-sizing: border-box;
 `;
 
 class Menu extends Component {
