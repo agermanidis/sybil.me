@@ -16,7 +16,7 @@ import { StickyContainer, Sticky } from 'react-sticky';
 import Menu from './components/Menu';
 import Avatar from './components/Avatar';
 import Profile from './components/Profile';
-import ProfileCode from './components/ProfileCode';
+import ProfileChat from './components/ProfileChat';
 import ProfileInUse from './components/ProfileInUse';
 import Description from './components/Description';
 import DescriptionInUse from './components/DescriptionInUse';
@@ -138,7 +138,7 @@ class App extends Component {
             onDrop={this.onDrop.bind(this)} />
         </Page>
         <Page><ProfileInUse /></Page>
-        <Page><ProfileCode /></Page>
+        <Page><ProfileChat /></Page>
         </Flex1>
       </PageContainer>
     </div>

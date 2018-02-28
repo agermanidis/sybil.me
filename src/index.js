@@ -30,4 +30,10 @@ injectGlobal`
   a {
       color: black;
   }
+
+  * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  }
+
 `
