@@ -15,6 +15,12 @@ const Message = styled.p `
   margin: 0 0 0 21px;
 `
 
+const User = styled.span `
+  font-size: 20px;
+  font-weight:bold;
+  margin-right: 5px;
+`
+
 const SybilDiv = styled.div `
   flex: 1;
 
@@ -37,6 +43,7 @@ class ChatMessages extends Component {
       </SybilDiv>
 
       <Message>
+        <User>User:</User>
         Integrate Sybil into your Ðapp in a few lines of code. No need to write custom code to maintain user profiles.
       </Message>
     </MessagesBox>

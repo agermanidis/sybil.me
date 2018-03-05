@@ -13,13 +13,11 @@ class DescriptionInUse extends Component {
     return <DescriptionContainer>
         <PageTitle>For Users</PageTitle>
         <DescriptionText>
-          Set your profile once, use it everywhere.
+          Set your profile once, use it everywhere.<b> You're in control of your data, not the applications you use.</b>
         </DescriptionText>
+
         <DescriptionText>
-          You're in control of your data, not the applications you use.
-        </DescriptionText>
-        <DescriptionText>
-          You can only have one profile per Ethereum address—but you can create as many addresses you want.
+          You can only have one profile per Ethereum address <b> but you can create as many addresses you want.</b>
         </DescriptionText>
       </DescriptionContainer>;
   }

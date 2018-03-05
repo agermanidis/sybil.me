@@ -10,7 +10,7 @@ const WalletMessage = ({hasWeb3, isNetworkSupported}) => {
     if (hasWeb3 && isNetworkSupported) {
         return (
             <span>
-                Ethereum wallet detected. Connected to mainnet.
+              🦊 Ethereum wallet detected. Connected to mainnet.
             </span>
         )
     } else if (hasWeb3) {
