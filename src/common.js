@@ -135,14 +135,14 @@ class EthereumWrapper extends Component {
         break;
     }
 
-    const hasWallet = hasWeb3 && this.props.supportedNetworks.includes(network);
+    const isNetworkSupported = hasWeb3 && this.props.supportedNetworks.includes(network);
 
     this.setState(
       {
-        web3: hasWallet ? web3 : remoteWeb3,
+        web3: isNetworkSupported ? web3 : remoteWeb3,
         hasWeb3,
-        network: hasWallet ? network : this.props.supportedNetworks[0],
-        hasWallet,
+        network: isNetworkSupported ? network : this.props.supportedNetworks[0],
+        isNetworkSupported,
         address
       },
       () => {

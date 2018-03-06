@@ -17,7 +17,7 @@ const MenuContainer = styled.div `
 class Menu extends Component {
 
   render(){
-    const {hasWeb3, hasWallet} = this.props;
+    const {hasWeb3, isNetworkSupported} = this.props;
 
     return <MenuContainer>
       <Flex1 style={{paddingLeft: '20px'}} >
@@ -26,7 +26,7 @@ class Menu extends Component {
       <Flex1 style={{textAlign: 'center'}}>
         <WalletMessage
           hasWeb3={hasWeb3}
-          hasWallet={hasWallet}
+          isNetworkSupported={isNetworkSupported}
           />
       </Flex1>
       <Flex1 style={{textAlign: 'right', paddingRight: '40px'}}>

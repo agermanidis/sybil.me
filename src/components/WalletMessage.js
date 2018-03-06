@@ -6,8 +6,8 @@ const joinOr = (arr) => {
     return arr.slice(0, arr.length - 1).join(', ') + ' or ' + arr.slice(arr.length-1);
 }
 
-const WalletMessage = ({hasWeb3, hasWallet}) => {
-    if (hasWeb3 && hasWallet) {
+const WalletMessage = ({hasWeb3, isNetworkSupported}) => {
+    if (hasWeb3 && isNetworkSupported) {
         return (
             <span>
               🦊 Ethereum wallet detected. Connected to mainnet.

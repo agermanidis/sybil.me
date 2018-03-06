@@ -16,12 +16,12 @@ const ProfileChatBox = styled.div `
 
 class ProfileChat extends Component {
   render() {
-    const { web3, address, hasWallet } = this.props;
+    const { web3, address, isNetworkSupported } = this.props;
     return  (
       <ProfileChatBox>
         <Chat 
           address={address}
-          hasWallet={hasWallet} 
+          isNetworkSupported={isNetworkSupported} 
           web3={web3} />
       </ProfileChatBox>
     )
