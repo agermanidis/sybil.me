@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import SybilIcon from '../images/sybil.png';
+import { generateNickname } from '../helpers/nickname';
+import { generateAvatar } from '../helpers/avatar';
 
 const MessagesBox = styled.div `
   max-height: 10%;
-  padding: 25px;
+  padding: 10px;
   word-break: keep-all;
   display: flex;
 `
@@ -31,25 +33,21 @@ const Sybil = styled.img `
   width: 35px;
 `
 
-class ChatMessages extends Component {
-
+class ChatMessage extends Component {
   render() {
-
-    return  (
-
-    <MessagesBox>
-      <SybilDiv>
-        <Sybil src={SybilIcon}  />
-      </SybilDiv>
-
-      <Message>
-        <User>User:</User>
-        Integrate Sybil into your Ðapp in a few lines of code. No need to write custom code to maintain user profiles.
-      </Message>
-    </MessagesBox>
-    )
+    const { address, content } = this.props;
+    
+    return <MessagesBox>
+        <SybilDiv>
+          <Sybil src={generateAvatar(address)} />
+        </SybilDiv>
+        <Message>
+          <User>{generateNickname(address)}:</User>
+          {content}
+        </Message>
+      </MessagesBox>;
   }
 
 }
 
-export default ChatMessages;
+export default ChatMessage;

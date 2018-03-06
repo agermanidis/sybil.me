@@ -66,6 +66,7 @@ class Profile extends Component {
   render() {
     let { address, nickname, image, onNicknameChange, onDrop } = this.props;
     if (!image) image = generateAvatar(address);
+    if (!nickname) nickname = generateNickname(address);
     return  <ProfileContainer>
         <AddText>Set your Avatar</AddText>
         <p>Drag and Drop your Image.</p>
@@ -78,7 +79,7 @@ class Profile extends Component {
         <p>
           <NicknameInput onChange={onNicknameChange}
             type="text"
-            placeholder={generateNickname(address)}
+            placeholder={nickname}
             onfocus="this.placeholder = ''"
             onblur="this.placeholder = 'enter your text'"
             value={nickname} />

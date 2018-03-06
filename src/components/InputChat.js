@@ -27,17 +27,36 @@ const Sybil = styled.img `
 `
 
 class InputChat extends Component {
-  render() {
+  state = {
+    textInput: ''
+  };
 
+  render() {
+    const { textInput } = this.state;
+    const { onSubmit, connected, address } = this.props;
+    let prompt = connected
+      ? 'Say something!'
+      : 'Connecting...';
     return  (
       <InputBox >
         <SybilDiv>
           <Sybil src={SybilIcon}  />
         </SybilDiv>
-
-        <InputField type="text" placeholder="Yo Purple Elephant, say something !  "/>
+        <InputField 
+          type="text" 
+          placeholder={prompt}
+          disabled={!connected}
+          value={textInput}
+          onChange={(evt) => {
+            this.setState({textInput: evt.target.value})
+          }}
+          onKeyPress={(evt) => {
+            if (evt.key === 'Enter') {
+              onSubmit(evt.target.value);
+              this.setState({textInput: ''});
+            }
+          }} />
       </InputBox>
-
     )
   }
 

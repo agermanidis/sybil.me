@@ -15,15 +15,15 @@ const ProfileChatBox = styled.div `
 `;
 
 class ProfileChat extends Component {
-
   render() {
-
-
+    const { web3, address, hasWallet } = this.props;
     return  (
-
-    <ProfileChatBox>
-    <Chat/>
-    </ProfileChatBox>
+      <ProfileChatBox>
+        <Chat 
+          address={address}
+          hasWallet={hasWallet} 
+          web3={web3} />
+      </ProfileChatBox>
     )
   }
 

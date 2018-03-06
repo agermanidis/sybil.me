@@ -4,7 +4,12 @@
   "private": true,
   "dependencies": {
     "blob-to-buffer": "^1.2.7",
+    "immutability-helper": "^2.6.6",
+    "ipfs": "^0.28.0",
     "ipfs-api": "^17.5.0",
+    "ipfs-pubsub-room": "^1.1.5",
+    "js-ipfs": "0.0.301",
+    "moment": "^2.21.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-dropzone": "^4.2.7",
@@ -16,6 +21,7 @@
     "react-sticky": "^6.0.1",
     "react-syntax-highlighter": "^7.0.0",
     "styled-components": "^3.1.6",
+    "uuid": "^3.2.1",
     "web3": "^1.0.0-beta.27"
   },
   "scripts": {

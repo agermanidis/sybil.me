@@ -120,7 +120,6 @@ class EthereumWrapper extends Component {
     const address = accounts[0];
 
     const netId = await web3.eth.net.getId();
-    console.log("NET ID", netId);
     let network = null;
     switch (netId) {
       case 1:
@@ -136,14 +135,14 @@ class EthereumWrapper extends Component {
         break;
     }
 
-    const isNetworkSupported = hasWeb3 && this.props.supportedNetworks.includes(network);
+    const hasWallet = hasWeb3 && this.props.supportedNetworks.includes(network);
 
     this.setState(
       {
-        web3: isNetworkSupported ? web3 : remoteWeb3,
+        web3: hasWallet ? web3 : remoteWeb3,
         hasWeb3,
-        network: isNetworkSupported ? network : this.props.supportedNetworks[0],
-        isNetworkSupported,
+        network: hasWallet ? network : this.props.supportedNetworks[0],
+        hasWallet,
         address
       },
       () => {
@@ -159,13 +158,10 @@ class EthereumWrapper extends Component {
     const remoteWeb3 = new Web3(new Web3.providers.HttpProvider(REMOTE_WALLET));
     const web3 = hasWeb3 ? new Web3(window.web3) : remoteWeb3;
 
-    console.log("version:", web3.version);
-
     this.initWeb3(hasWeb3, web3, remoteWeb3);
   }
 
   render() {
-    console.log(this.props);
     if (!this.state.web3) return <p>Loading...</p>;
     const childrenWithProp = React.Children.map(this.props.children, child => {
       return React.cloneElement(child, this.state);
