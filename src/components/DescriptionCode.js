@@ -31,7 +31,6 @@ const S = new Sybil(web3);
 S.nickname.of('0x02f807d30DcA3bAb5C5b010F5D9a05e4876dcaB8');
 
 // get the avatar URL associated with an address
-
 S.avatar.of('0x02f807d30DcA3bAb5C5b010F5D9a05e4876dcaB8');`
 
       }

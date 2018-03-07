@@ -83,7 +83,6 @@ class App extends Component {
 
   handleScroll (evt) {
     let scrollTop = window.document.documentElement.scrollTop;
-    console.log({scrollTop});
     this.setState({scrollTop});
   }
 
@@ -113,7 +112,7 @@ class App extends Component {
 
   render() {
     const { scrollTop, nickname, image, pendingTx } = this.state;
-    const { address, hasWeb3, isNetworkSupported } = this.props;
+    const { address, hasWeb3, isNetworkSupported, web3 } = this.props;
     return <div>
       <Menu
         hasWeb3={hasWeb3}
@@ -138,7 +137,7 @@ class App extends Component {
             onDrop={this.onDrop.bind(this)} />
         </Page>
         <Page><ProfileInUse /></Page>
-        <Page><ProfileChat /></Page>
+        <Page><ProfileChat web3={web3} address={address} isNetworkSupported={isNetworkSupported} /></Page>
         </Flex1>
       </PageContainer>
     </div>
@@ -148,7 +147,7 @@ class App extends Component {
 const Wrapped = () => (
   <EthereumWrapper
     mainNetwork="mainnet"
-    supportedNetworks={['ropsten', 'mainnet']}
+    supportedNetworks={['mainnet', 'ropsten']}
   >
     <App />
   </EthereumWrapper>
