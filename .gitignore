@@ -6,6 +6,9 @@
 # testing
 /coverage
 
+# Design Files
+/Design
+
 # production
 /build
 
