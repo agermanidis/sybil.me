@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import SybilIcon from '../images/sybil.png';
-import { generateNickname } from '../helpers/nickname';
-import { generateAvatar } from '../helpers/avatar';
+import S from '../sybil';
 
 const MessagesBox = styled.div `
   max-height: 10%;
@@ -34,15 +33,26 @@ const Sybil = styled.img `
 `
 
 class ChatMessage extends Component {
+  state = {
+    avatar: null,
+    nickname: null
+  };
+
+  async componentDidMount () {
+    const account = S.of(this.props.address);
+    const avatar = await account.avatar();
+    const nickname = await account.nickname();
+    this.setState({avatar, nickname});
+  }
+
   render() {
     const { address, content } = this.props;
-    
     return <MessagesBox>
         <SybilDiv>
-          <Sybil src={generateAvatar(address)} />
+          <Sybil src={address} />
         </SybilDiv>
         <Message>
-          <User>{generateNickname(address)}:</User>
+          <User>{this.state.nickname}:</User>
           {content}
         </Message>
       </MessagesBox>;

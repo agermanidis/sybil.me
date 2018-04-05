@@ -61,10 +61,10 @@ To get information about an address:
 
 ```javascript
 // get the nickname associated with an address
-S.nickname.of('0x02f807d30DcA3bAb5C5b010F5D9a05e4876dcaB8');
+S.of('0x02f807d30DcA3bAb5C5b010F5D9a05e4876dcaB8').nickname();
 
 // get the avatar URL associated with an address
-S.avatar.of('0x02f807d30DcA3bAb5C5b010F5D9a05e4876dcaB8');
+S.of('0x02f807d30DcA3bAb5C5b010F5D9a05e4876dcaB8').avatar();
 ```
 
 ### License

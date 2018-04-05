@@ -96,8 +96,6 @@ class WithPendingTransaction extends Component {
   }
 }
 
-
-
 class EthereumWrapper extends Component {
   constructor() {
     super();

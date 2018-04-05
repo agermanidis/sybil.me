@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 const Flex1 = styled.div `
-  flex : 1;
+  flex: 1;
+  max-width: 50vw;
 `;
 
 export { Flex1 };

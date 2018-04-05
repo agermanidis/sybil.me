@@ -12,7 +12,6 @@ import styled from "styled-components";
 import ScrollableAnchor from 'react-scrollable-anchor';
 import { StickyContainer, Sticky } from 'react-sticky';
 
-
 import Menu from './components/Menu';
 import Avatar from './components/Avatar';
 import Profile from './components/Profile';
@@ -49,35 +48,16 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      nickname: "",
-      image: "" ,
       imageFile: null,
       pendingTx: null
     };
   }
 
   async setupContract() {
-    const contractInstance = new this.props.web3.eth.Contract(
-      contractABI,
-      CONTRACT_ADDRESSES[this.props.network]
-    );
-    this.setState({ contractInstance });
-  }
-
-  async refreshDapp() {
-    const { contractInstance } = this.state;
-    const { address } = this.props;
-    // const info = await contractInstance.methods.getInfo(address).call();
-    // const ipfsHash = info[1];
-    // this.setState({
-    //   name: info[0],
-    //   image: ipfsHash ? ipfsURL(ipfsHash) : ""
-    // });
+    
   }
 
   async componentDidMount() {
-    await this.setupContract();
-    await this.refreshDapp();
     window.addEventListener('scroll', this.handleScroll.bind(this));
   }
 

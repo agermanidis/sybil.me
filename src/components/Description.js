@@ -6,7 +6,7 @@ import { DescriptionText } from './Styles';
 const DescriptionContainer = styled.div `
   flex : 1;
   padding: 40px;
-  padding-top: 20vh;
+  padding-top: 10vh;
 `;
 
 const HeaderText = styled.h1 `
@@ -18,7 +18,7 @@ class Description extends Component {
     return  <DescriptionContainer>
         <HeaderText>Sybil is your minimal decentralized <u>identity</u>.</HeaderText>
         <DescriptionText>
-        It's a nickname, avatar, and other profile information attached to your Ethereum address that can be used across Ðapps.
+        It's a nickname, avatar, and other profile information attached to your Ethereum address that can be used across decentralized applications.
         </DescriptionText>
         <DescriptionText>
         <a href='#users'>Learn More</a>

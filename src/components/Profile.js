@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
 import Avatar from './Avatar';
 import { ExternalLink } from '../common';
-import { generateAvatar } from '../helpers/avatar';
-import { generateNickname } from '../helpers/nickname';
+import S from '../sybil';
 
 const ProfileContainer = styled.div `
   flex : 1;
@@ -63,26 +62,37 @@ const SaveButton = styled.button`
 const Space = ({size}) => <div style={{marginTop: size}} />
 
 class Profile extends Component {
+  state = {
+    avatar: null,
+    nickname: null
+  };
+
+  async componentDidMount () {
+    const account = S.of(this.props.address)
+    const avatar = await account.avatar();
+    const nickname = await account.nickname();
+    this.setState({avatar, nickname});
+  }
+
   render() {
-    let { address, nickname, image, onNicknameChange, onDrop } = this.props;
-    if (!image) image = generateAvatar(address);
-    if (!nickname) nickname = generateNickname(address);
+    let { address, onNicknameChange, onDrop } = this.props;
+    
     return  <ProfileContainer>
         <AddText>Set your Avatar</AddText>
         <p>Drag and Drop your Image.</p>
         {/* <img src={image} /> */}
         <Avatar 
           onDrop={onDrop}
-          image={image}/>
+          image={this.state.avatar}/>
         <Space size={'5em'} />
         <AddText>Set your Nickname</AddText>
         <p>
           <NicknameInput onChange={onNicknameChange}
             type="text"
-            placeholder={nickname}
+            placeholder={this.state.nickname}
             onfocus="this.placeholder = ''"
             onblur="this.placeholder = 'enter your text'"
-            value={nickname} />
+            value={this.state.nickname} />
 
           {/* <BlinkingSpan > | </BlinkingSpan> */}
         </p>

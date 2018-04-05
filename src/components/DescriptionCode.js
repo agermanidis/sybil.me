@@ -14,9 +14,9 @@ const DescriptionContainer = styled.div `
 class DescriptionCode extends Component {
   render() {
     return <DescriptionContainer>
-        <PageTitle>For Ðapp Developers</PageTitle>
+        <PageTitle>For Developers</PageTitle>
         <DescriptionText>
-          Integrate Sybil into your Ðapp in a few lines of code. <b> No need to write custom code to maintain user profiles.</b>
+          Integrate Sybil into your decentralized application in a few lines of code. <b> No need to write custom code to maintain user profiles.</b>
         </DescriptionText>
 
         <SyntaxHighlighter style={hybrid} customStyle={{background: 'none', fontSize: '18px'}} language='javascript'>
@@ -24,15 +24,16 @@ class DescriptionCode extends Component {
 
 import Sybil from 'sybil';
 
-// initialize Sybil using the default contract address
-const S = new Sybil(web3);
+// initialize Sybil
+const S = new Sybil();
 
-// get the nickname associated with an address
-S.nickname.of('0x02f807d30DcA3bAb5C5b010F5D9a05e4876dcaB8');
+// get an account's nickname
+await S.of('0x02f807d30DcA3bAb5C5b010F5D9a05e4876dcaB8').nickname();
 
-// get the avatar URL associated with an address
-S.avatar.of('0x02f807d30DcA3bAb5C5b010F5D9a05e4876dcaB8');`
+// get an account's avatar URL
+await S.of('0x02f807d30DcA3bAb5C5b010F5D9a05e4876dcaB8').avatar();
 
+`
       }
 
         </SyntaxHighlighter>
