@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import SybilIcon from '../images/sybil.png';
-
+import S from '../sybil';
+import { ChatAvatar } from './Styles';
 
 const InputBox = styled.div `
   display: flex;
@@ -16,36 +16,44 @@ const InputField = styled.input `
   padding: 15px;
 `
 
-const SybilDiv = styled.div `
+const MessageComposerIconContainer = styled.div `
   flex: 1;
   padding: 15px 0 15px 33px;
 `
 
-const Sybil = styled.img `
-  height: 20px;
-  width: 20px;
-`
 
 class InputChat extends Component {
   state = {
-    textInput: ''
+    textInput: '',
+    avatar: null
   };
 
+  async componentDidMount () {
+    const { address } = this.props;
+    if (address) {
+      const user = S.of(address);
+      const avatar = await user.avatar();
+      this.setState({avatar});
+    }
+  }
+
   render() {
-    const { textInput } = this.state;
+    const { textInput, avatar } = this.state;
     const { onSubmit, connected, address } = this.props;
-    let prompt = connected
-      ? 'Say something!'
-      : 'Connecting...';
+    let prompt = !address 
+      ? 'You need a Sybil profile to participate' 
+      : (!connected 
+        ? 'Connecting...'
+        : 'Say something!');
     return  (
       <InputBox >
-        <SybilDiv>
-          <Sybil src={SybilIcon}  />
-        </SybilDiv>
+        {avatar && <MessageComposerIconContainer>
+          <ChatAvatar src={avatar}  />
+        </MessageComposerIconContainer>}
         <InputField 
           type="text" 
           placeholder={prompt}
-          disabled={!connected}
+          disabled={!connected || !address}
           value={textInput}
           onChange={(evt) => {
             this.setState({textInput: evt.target.value})

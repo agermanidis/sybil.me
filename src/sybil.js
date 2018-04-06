@@ -1,2 +1,2 @@
 import Sybil from 'sybil';
-export default new Sybil();
+export default new Sybil;

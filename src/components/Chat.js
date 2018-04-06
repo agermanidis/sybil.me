@@ -11,7 +11,7 @@ import update from 'immutability-helper';
 const ChatBox = styled.div `
   width: 70%;
   background-color: white;
-  height: 80%;
+  height: 70%;
   padding: 20px;
 `;
 
@@ -97,8 +97,12 @@ class Chat extends Component {
   async verifyMessage(msg) {
     const { web3 } = this.props;
     const { address } = msg;
-    const recovered = await web3.eth.personal.ecRecover(msg.content, msg.signature);
-    return address.toLowerCase() === recovered.toLowerCase();
+    try {
+      const recovered = await web3.eth.personal.ecRecover(msg.content, msg.signature);
+      return address.toLowerCase() === recovered.toLowerCase();
+    } catch(e) {
+      return true;
+    }
   }
 
   componentDidMount () {
@@ -143,8 +147,8 @@ class Chat extends Component {
         </Header>
         <ChatMessagesContainer messages={messages} />
         <InputChat 
+          address={address}
           connected={connected}
-          hasWallet={isNetworkSupported && address}
           onSubmit={this.submitMessage.bind(this)} />
       </ChatBox>;
   }

@@ -11,13 +11,16 @@ const DescriptionContainer = styled.div `
 class DescriptionInUse extends Component {
   render() {
     return <DescriptionContainer>
-        <PageTitle>For Users</PageTitle>
         <DescriptionText>
-          Set your profile once, use it everywhere.<b> You're in control of your data, not the applications you use.</b>
+          Let's stop letting advertising walled gardens manage our personal data.
         </DescriptionText>
 
         <DescriptionText>
-          You can only have one profile per Ethereum address <b> but you can create as many addresses you want.</b>
+          Sybil stores your identity on the Ethereum blockchain, where it can be shared across applications.<b> You're in control of your data, not the applications you use.</b>
+        </DescriptionText>
+        
+        <DescriptionText>
+          You can only have one Sybil profile per Ethereum address but you can create as many addresses you want–each for a different facet of yourself.
         </DescriptionText>
       </DescriptionContainer>;
   }

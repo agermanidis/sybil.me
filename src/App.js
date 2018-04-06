@@ -11,6 +11,7 @@ import contractABI from "./abi";
 import styled from "styled-components";
 import ScrollableAnchor from 'react-scrollable-anchor';
 import { StickyContainer, Sticky } from 'react-sticky';
+import isMobile from 'is-mobile';
 
 import Menu from './components/Menu';
 import Avatar from './components/Avatar';
@@ -53,10 +54,6 @@ class App extends Component {
     };
   }
 
-  async setupContract() {
-    
-  }
-
   async componentDidMount() {
     window.addEventListener('scroll', this.handleScroll.bind(this));
   }
@@ -66,37 +63,19 @@ class App extends Component {
     this.setState({scrollTop});
   }
 
-  async onDrop(files) {
-    console.log('just dropped', files);
-    if (files.length === 0) return;
-    this.setState({
-      image: URL.createObjectURL(files[0]),
-      // imageFile: files[0]
-    });
-  }
-
-  async save() {
-    const { address } = this.props;
-    const { contractInstance, nickname, imageFile } = this.state;
-    let tx;
-    if (imageFile) {
-      const hash = await uploadFileToIpfs(imageFile);
-      tx = contractInstance.methods.setInfo(nickname, hash);
-    } else {
-      tx = contractInstance.methods.setNickname(nickname);
-    }
-    tx.send({ from: address, gas: GAS_LIMIT }).on("transactionHash", hash => {
-      this.setState({ pendingTx: hash });
-    });
-  }
-
   render() {
-    const { scrollTop, nickname, image, pendingTx } = this.state;
+    const { scrollTop, pendingTx } = this.state;
     const { address, hasWeb3, isNetworkSupported, web3 } = this.props;
+
+    if (isMobile()) {
+      return <div>
+          <Description />
+          <Profile address={address}/>
+          <DescriptionInUse />
+        </div>
+    }
     return <div>
-      <Menu
-        hasWeb3={hasWeb3}
-        isNetworkSupported={isNetworkSupported} />
+      <Menu />
       <PageContainer>
         <Flex1>
             <Page><Description /></Page>
@@ -109,12 +88,8 @@ class App extends Component {
         </Flex1>
         <Flex1>
         <Page>
-          <Profile
-            address={address}
-            nickname={nickname}
-            image={image}
-            onNicknameChange={(evt) => this.setState({ nickname: evt.target.value })}
-            onDrop={this.onDrop.bind(this)} />
+          <Profile address={address}/>
+            
         </Page>
         <Page><ProfileInUse /></Page>
         <Page><ProfileChat web3={web3} address={address} isNetworkSupported={isNetworkSupported} /></Page>

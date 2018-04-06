@@ -3,28 +3,40 @@ import Dropzone from "react-dropzone";
 import styled from 'styled-components';
 import FaFileImageO from "react-icons/lib/fa/file-image-o";
 import FaEdit from 'react-icons/lib/fa/edit';
-import MdFileDownload from 'react-icons/lib/md/file-download';
+import FaCloudUpload from "react-icons/lib/fa/cloud-upload";
 
 const AvatarDropzone = styled(Dropzone)`
-  width: 400px;
-  height: 400px;
+  position: relative;
+  width: 300px;
+  height: 300px;
   margin: 2em auto;
-  display: flex;
+  // display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   background-size: contain;
   color: gray;
-  background-image: ${props => props.dragOver || `url(${props.image})`};
-  // border: ${props => props.dragOver ? '1px dashed gray' : '0px solid transparent'};
-  padding: ${props => !props.dragOver && '1px'}
+
+  // background-image: ${props => `url(${props.image})`};
+  // padding: ${props => !props.dragOver && "1px"}
   background-repeat: no-repeat;
 
 
   &:hover {
-    // opacity: ${props => props.hasImage ? 0.8 : 1};
-    opacity: 0.7;
+    // opacity: ${props => (props.hasImage ? 0.8 : 1)};
+    // opacity: 0.7;
+    // filter: blur(5px);
   }
+`;
+
+const AvatarImage = styled.img`
+  ${props => props.dragOver && "opacity: 0.25; "};
+`;
+
+const DropText = styled.h2`
+  position: absolute;
+  width: 100%;
+  top: 100px;
 `;
 
 class Avatar extends Component {
@@ -41,11 +53,10 @@ class Avatar extends Component {
   }
 
   render () {
-    const { dragOver } = this.state;
+    const { dragOver, imageInput } = this.state;
     const { image, onChange, onDrop } = this.props;
     return <div>
       <AvatarDropzone 
-        image={image}
         dragOver={dragOver}
         accept="image/*" 
         onDrop={onDrop}
@@ -54,10 +65,8 @@ class Avatar extends Component {
         onDragOver={this.onDragOver.bind(this)}
         onDragLeave={this.onDragLeave.bind(this)}
         >
-          {dragOver && <h1><MdFileDownload/> Drop here</h1>}
-          {!image && !dragOver &&  <div>
-              <FaFileImageO /> Upload picture
-            </div>}
+          <AvatarImage dragOver={dragOver} src={imageInput||image} width={300} height={300} />
+          {dragOver && <DropText><FaCloudUpload/> Upload Image to IPFS</DropText>}
       </AvatarDropzone>
     </div>;
   }

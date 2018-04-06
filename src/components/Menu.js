@@ -21,18 +21,16 @@ class Menu extends Component {
 
     return <MenuContainer>
       <Flex1 style={{paddingLeft: '20px'}} >
-        🎭 sybil.me – minimal decentralized identity
+        🎭 sybil.me – minimalist decentralized identity protocol
       </Flex1>
-      <Flex1 style={{textAlign: 'center'}}>
+      {/* <Flex1 style={{textAlign: 'center'}}>
         <WalletMessage
           hasWeb3={hasWeb3}
           isNetworkSupported={isNetworkSupported}
           />
-      </Flex1>
+      </Flex1> */}
       <Flex1 style={{textAlign: 'right', paddingRight: '40px'}}>
-        <ExternalLink href="#">About</ExternalLink>
-        {' – '}
-        <ExternalLink href="#">Docs</ExternalLink>
+        <ExternalLink href="#">Github</ExternalLink>
         {' – '}
         <ExternalLink href="#">Smart Contract</ExternalLink>
       </Flex1>

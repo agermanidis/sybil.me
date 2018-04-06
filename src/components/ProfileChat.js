@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { ExternalLink } from '../common';
-// import SyntaxHighlighter from "react-syntax-highlighter";
-// import { hybrid } from "react-syntax-highlighter/styles/hljs";
 import Chat from './Chat';
+import { PageTitle } from './Styles';
 
 const ProfileChatBox = styled.div `
   display: flex;
+  flex-direction: column;
   flex : 1;
   align-items: center;
   justify-content: center;
@@ -19,6 +19,7 @@ class ProfileChat extends Component {
     const { web3, address, isNetworkSupported } = this.props;
     return  (
       <ProfileChatBox>
+        <h3 style={{color: 'white'}}>Example Sybil App: Chatroom w/ IPFS PubSub</h3>
         <Chat 
           address={address}
           isNetworkSupported={isNetworkSupported} 

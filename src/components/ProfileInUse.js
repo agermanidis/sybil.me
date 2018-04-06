@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { ExternalLink } from '../common';
-import Dwritter from '../images/dwritter.png';
+import Apps from './AppsImage';
 
 const ProfileInUseContainer = styled.div `
   flex : 1;
@@ -14,15 +14,17 @@ const ProfileInUseContainer = styled.div `
 `;
 
 const SocialImage = styled.img `
-  right: -60px;
+  right: -70px;
   position: relative;
+  height: 87vh;
 `;
 
 class ProfileInUse extends Component {
   render() {
     return <ProfileInUseContainer>
-      <SocialImage src={Dwritter} />
-    </ProfileInUseContainer>;
+       {/* <SocialImage src={Apps} /> */}
+       <Apps/>
+     </ProfileInUseContainer>;
   }
 }
 
