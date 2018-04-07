@@ -7,12 +7,13 @@ import ProfileExample from '../images/ProfileExample.png';
 import S from '../sybil'
 import FaExclamationTriangle from 'react-icons/lib/fa/exclamation-triangle';
 import dot from '../images/dot.png';
+import media from '../media';
+
 
 const ProfileContainer = styled.div `
   flex : 1;
   padding-top: 10vh;
   background-image: url(${dot});
-  background-color: #efe9e0;
   background-color: #F6F6F6;
   text-align: center;
   color: #414141;
@@ -34,6 +35,10 @@ const Card = styled.div `
   background: #f6f6f6;
   padding: 3rem 0 3rem 0;
   margin: 0 10rem 0 10rem;
+  ${ media.handheld`
+    padding: 3rem 0 3rem 0;
+    margin: 0 0rem 0 0rem;
+  ` }
 `
 
 const BlinkingSpan = styled.span `
