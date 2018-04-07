@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const AppsImageContainer = styled.svg`
-  right: -70px;
+  right: -100px;
   position: relative;
   height: 87vh;
 `;
@@ -252,18 +252,18 @@ class AppsImage extends Component {
                             </g>
                             <rect id="Rectangle-3-Copy" stroke="#E9EAED" x="0.5" y="0.5" width="486.535714" height="146.741803" rx="12"></rect>
                         </g>
-                        <rect id="Rectangle-4" fill="#FFFFFF" x="76" y="129" width="490.875" height="92"></rect>
-                        <rect id="Rectangle-4-Copy" fill="#FFFFFF" x="76" y="255" width="490.875" height="124.788251"></rect>
-                        <rect id="Rectangle-4-Copy-2" fill="#FFFFFF" x="76" y="397" width="490.875" height="124.788251"></rect>
-                        <rect id="Rectangle-4-Copy-3" fill="#FFFFFF" x="76" y="543" width="490.875" height="30.8838798"></rect>
+                        <rect id="Rectangle-4" fill="#FFFFFF" x="90" y="129" width="490.875" height="92"></rect>
+                        <rect id="Rectangle-4-Copy" fill="#FFFFFF" x="90" y="255" width="490.875" height="92"></rect>
+                        <rect id="Rectangle-4-Copy-2" fill="#FFFFFF" x="90" y="397" width="490.875" height="92"></rect>
+                        <rect id="Rectangle-4-Copy-3" fill="#FFFFFF" x="90" y="543" width="490.875" height="30.8838798"></rect>
                         <text class="nickname-label"  alignment-baseline="middle" font-family="AvenirNext-Regular, Avenir Next" font-size="8" font-weight="normal" fill="#000000">
                             <tspan x="15" y="170">victor_eremita</tspan>
                         </text>
                         <text id="cool_stranger" font-family="AvenirNext-Regular, Avenir Next" font-size="8" font-weight="normal" fill="#000000">
                             <tspan x="16.452" y="298">cool_stranger</tspan>
                         </text>
-                        <text id="P2PMessageboard" font-family="AmericanTypewriter, American Typewriter" font-size="15" font-weight="normal" fill="#FFFFFF">
-                            <tspan x="77" y="77">P2PMessageboard</tspan>
+                        <text id="P2PMessageboard" font-family="Arial" font-size="14" font-weight="normal" fill="#a2a2a2">
+                            <tspan x="77" y="77">P2P–MessageBoard</tspan>
                         </text>
                         <text id="cool_stranger" font-family="AvenirNext-Regular, Avenir Next" font-size="8" font-weight="normal" fill="#000000">
                             <tspan x="16.452" y="440">cool_stranger</tspan>
@@ -336,7 +336,7 @@ class AppsImage extends Component {
                             <image class="avatar-placeholder" mask="url(#mask-30)" x="-3" y="0" width="31" height="30" xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEEAAAA/CAYAAAC/36X0AAAABGdBTUEAA1teXP8meAAAAodJREFUeAHtmz2LWkEUhs8140ogYqEgbqFEFklztZBtFrYSmy1S7T8IJFjlDxgQO5t0FrZpY2dlcMHFIghWm0JSSBpBQXHRwi/UmxmHHbDbexTywTsizJV7Zsb3Pi/M8YxWoVD4Gg6Hb4nZVp8+EDm84BdXDyRuvvOCZVQ6naZIJMKKXy6X1Gg0KBgM+oQaodlsUrvdZg320XlPlnxxWqfTofsfJU7oPqZYLLJFmM1mtN1u9+N42Cv4jwIhgnyYEAEiaE+DBJAAErQCIAEkgASjAOwAOxgYsE+QUuyzSCMJo3Nx9ZksZip98eYVvXv7hTEr0Xg8pnK5TLVajRW/Xq8pm83uY48W4cZ+ZCcgv85f0uvra9aX6Pf71Ov19m/WADLoSQTYQYoBESCCNhJIAAkgQSsAEkACSDAKwA6wg4EB+wTYQcMgNptNyO/3UyKRMHi46bTPzpjlWJkOy8rwt0rFzXTm3ul0avrHdpQIkUAgQLZts8Z6vLwkj4fnqvu7O6pWq6x5TxnEW/0pV/AXjAUR5EOACBBBexEkgASQoBUACSABJBgFYAfYwcBwdC3SjPQHOl6vl5287XY7s2IRCoWsyWRCqkrLaa1WiyyLd7ZZHbJW56q5rVQqkRKC0xaLhQkTsjLrJJNJ84HbTjweJ8fh1eZTqRTFYjG3U5r7hTgNyNg2S0khAkTQzgIJIAEkaAVAAkgACUYB2AF2MDBgnwA7aBjEfD5fD4dDWq1WBg83HW4GqeZQ55Pz+byb6Q7u7Xa7NBqNDj577oX6i7DKYlUT9Xr9p6xM24PB4LnxB/dlMpmDa7cX6gFwm0rDj0nFn6rpwufzVeSPIr1oNMpdyz8bpyjK5XKb35d1mVA58RY1AAAAAElFTkSuQmCC"></image>
                         </g>
                     </g>
-                    <g id="Dwitter" transform="translate(95.000000, 193.000000)">
+                    <g id="Dwitter" transform="translate(105.000000, 143.000000)">
                         <g id="Browser">
                             <g id="Rectangle-3-Copy-2">
                                 <mask id="mask-32" fill="white">

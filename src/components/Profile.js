@@ -6,10 +6,14 @@ import { ScaleLoader } from 'react-spinners';
 import ProfileExample from '../images/ProfileExample.png';
 import S from '../sybil'
 import FaExclamationTriangle from 'react-icons/lib/fa/exclamation-triangle';
+import dot from '../images/dot.png';
+import media from '../media';
+
 
 const ProfileContainer = styled.div `
   flex : 1;
   padding-top: 10vh;
+  background-image: url(${dot});
   background-color: #F6F6F6;
   text-align: center;
   color: #414141;
@@ -26,6 +30,16 @@ const blink = keyframes`
     color: #808080;
   }
 `;
+
+const Card = styled.div `
+  background: #f6f6f6;
+  padding: 3rem 0 3rem 0;
+  margin: 0 10rem 0 10rem;
+  ${ media.handheld`
+    padding: 3rem 0 3rem 0;
+    margin: 0 0rem 0 0rem;
+  ` }
+`
 
 const BlinkingSpan = styled.span `
   font-size: 24px;
@@ -115,10 +129,10 @@ class Profile extends Component {
     try {
       if (this.state.nickname !== this.state.nicknameInput) {
         await account.set('nickname', this.state.nicknameInput);
-      } 
+      }
       if (this.state.avatar !== this.state.avatarInput) {
         await account.setWithIPFS('avatar', this.state.avatarInput);
-      } 
+      }
     } catch (e) {
       console.log(e.toString());
       await this.setStateAsync({errored: true});
@@ -130,10 +144,10 @@ class Profile extends Component {
   render() {
     let { address } = this.props;
     const { loading, errored, avatarInput, avatar, completed } = this.state;
-    
+
     return <ProfileContainer>
         {avatar
-        ? <div>
+        ? <Card>
         <AddText>Your Ethereum address is</AddText>
         <p>
           <a target='_blank' style={{ color: "#09096d", textDecoration: "none" }} href={getEtherscanAddressUrl(address)}>
@@ -151,42 +165,42 @@ class Profile extends Component {
         <p>
           <NicknameInput onChange={(evt) => {
             this.setState({nicknameInput: evt.target.value, completed: false});
-          }} 
-            type="text" 
-            placeholder='Enter a nickname' 
+          }}
+            type="text"
+            placeholder='Enter a nickname'
             value={this.state.nicknameInput} />
         </p>
         {
           loading
           ? <div style={{margin: '2em'}}><ScaleLoader color='gray' /></div>
-          : <SaveButton 
+          : <SaveButton
               disabled={
-                this.state.nickname === this.state.nicknameInput && 
+                this.state.nickname === this.state.nicknameInput &&
                 this.state.avatarInput === null
               }
               onClick={this.saveNickname.bind(this)}>Save</SaveButton>
         }
-        {errored 
-          && 
+        {errored
+          &&
           <div style={{color: '#ff1f1f'}}>Error completing the transaction.</div>
         }
-        {loading 
-          && 
+        {loading
+          &&
           <div>Waiting for transaction...</div>
         }
-        {completed 
-          && 
+        {completed
+          &&
           <div>Transaction completed.</div>
         }
 
-        </div>
+        </Card>
         : <div style={{position: 'relative'}}>
           <div style={{position: 'absolute', top: '10vh', padding: '10vw'}}>
             <div style={{fontSize: '40px'}}><FaExclamationTriangle/></div>
             <h2>You need to use an Ethereum wallet (such as <a target='_blank' href='https://metamask.io/'>Metamask</a>) and connect to the Ropsten network to set your profile.</h2>
           </div>
-          <img 
-            style={{height: '80vh', filter: 'blur(2px)', opacity: 0.15}} 
+          <img
+            style={{height: '80vh', filter: 'blur(2px)', opacity: 0.15}}
             src={ProfileExample}/>
           </div>}
 

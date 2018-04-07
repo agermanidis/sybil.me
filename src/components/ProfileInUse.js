@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { ExternalLink } from '../common';
 import Apps from './AppsImage';
+import dot from '../images/dot.png';
 
 const ProfileInUseContainer = styled.div `
   flex : 1;
-  background-color: #838383;
+  background-image: url(${dot});
+  background-color: #efe9e0;
   color: #414141;
   font-size: 0.8rem;
-  height: 100vh;
+  height: 92vh;
   padding-top: 8vh;
   overflow-x: hidden;
   position: relative;
