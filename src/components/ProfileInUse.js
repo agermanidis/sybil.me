@@ -11,11 +11,12 @@ const ProfileInUseContainer = styled.div `
   height: 100vh;
   padding-top: 8vh;
   overflow-x: hidden;
+  position: relative;
 `;
 
 const SocialImage = styled.img `
-  right: -70px;
-  position: relative;
+  right: 0px;
+  position: absolute;
   height: 87vh;
 `;
 
