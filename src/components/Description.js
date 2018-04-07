@@ -7,7 +7,7 @@ import media from '../media';
 const DescriptionContainer = styled.div `
   flex : 1;
   padding: 40px;
-  padding-top: 10vh;
+  padding-top: 16vh;
   ${ media.handheld`
     padding-top: 0;
   ` }

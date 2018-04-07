@@ -12,11 +12,18 @@ const DescriptionContainer = styled.div `
   padding: 40px;
 `;
 
+const SquareBlue = styled.div `
+  height: 15px;
+  width: 15px;
+  background: #0678B0;
+  margin-top: 16vw;
+`;
+
 class DescriptionCode extends Component {
   render() {
     return <DescriptionContainer>
         <DescriptionText>
-          Add Sybil to your dapp in a few lines of code. 
+          Add Sybil to your dapp in a few lines of code.
         </DescriptionText>
 
         <img src={CodeSnippet} style={{width: '45vw', margin: '1em -1em'}} />
@@ -36,6 +43,7 @@ await S.of('0x02f807d30DcA3bAb5C5b010F5D9a05e4876dcaB8').avatar();
 
         </SyntaxHighlighter> */}
         <a href="https://github.com/agermanidis/sybil"> Github </a>
+        <SquareBlue />
       </DescriptionContainer>;
   }
 }
