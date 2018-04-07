@@ -89,7 +89,7 @@ class Profile extends Component {
       try {
         const avatar = await user.avatar();
         const nickname = await user.nickname();
-        this.setState({avatar, nickname, address});
+        this.setState({avatar, nickname, address, nicknameInput: nickname});
       } catch (e) {
       }
     }
@@ -124,7 +124,7 @@ class Profile extends Component {
       await this.setStateAsync({errored: true});
     }
     await this.refresh();
-    await this.setStateAsync({loading: false, avatarInput: null, completed: true});
+    await this.setStateAsync({loading: false, avatarInput: null, completed: !this.state.errored});
   }
 
   render() {
@@ -132,9 +132,6 @@ class Profile extends Component {
     const { loading, errored, avatarInput, avatar, completed } = this.state;
     
     return <ProfileContainer>
-        {/* <p>Drag and Drop your Image.</p> */}
-        {/* <img src={image} /> */}
-        {/* <h2>Your Sybil profile:</h2> */}
         {avatar
         ? <div>
         <AddText>Your Ethereum address is</AddText>

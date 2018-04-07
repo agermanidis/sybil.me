@@ -12,7 +12,7 @@ class DescriptionInUse extends Component {
   render() {
     return <DescriptionContainer>
         <DescriptionText>
-          Let's stop letting advertising walled gardens manage our personal data.
+          Stop letting advertising walled gardens manage your personal data.
         </DescriptionText>
 
         <DescriptionText>
