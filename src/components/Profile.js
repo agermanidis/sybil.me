@@ -195,7 +195,7 @@ class Profile extends Component {
 
         </Card>
         : <div style={{position: 'relative'}}>
-          <div style={{position: 'absolute', top: '10vh', padding: '10vw'}}>
+          <div style={{position: 'absolute', top: '10vh', padding: '10vw', zIndex: 100}}>
             <div style={{fontSize: '40px'}}><FaExclamationTriangle/></div>
             <h2>You need to use an Ethereum wallet (such as <a target='_blank' href='https://metamask.io/'>Metamask</a>) and connect to the Ropsten network to set your profile.</h2>
           </div>
